@@ -1,0 +1,391 @@
+@font-face {
+    font-family: "Aramisi";
+    src: url("aramisi.ttf");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("Open_Sans/OpenSans-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Mobile*/
+
+.modal {
+    z-index: 5;
+    position: fixed;
+    background-color: rgba(200, 200, 200, .5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    overflow: visible;
+}
+
+.overhead {
+    overflow: auto;
+    height: 100vh;
+}
+
+.modal_container {
+    position: relative;
+    padding: 10px;
+    padding-bottom: 20px;
+    width: 320px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.close_button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.close_button:hover {
+    opacity: 0.7;
+}
+
+.details {
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.details li {
+    list-style-type: none;
+    font-weight: bold;
+    margin: 0 auto 15px auto;
+    width: 85px;
+}
+
+.details li:last-child {
+    display: flex;
+    flex-direction: inherit;
+    margin-bottom: 0px;
+    align-items: center;
+}
+
+.doctor_name {
+    font-size: 12px;
+    font-weight: bold;
+    color: royalblue;
+}
+
+.custom_heading {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: grey;
+    font-weight: bold;
+}
+
+.featured_pic img {
+    width: 50px;
+    border-radius: 50%;
+    padding-bottom: 5px;
+}
+
+header {
+    padding-top: 20px;
+}
+
+.divider {
+    height: 1px;
+    size: 1px;
+    color: lightgray;
+    background-color: lightgray;
+}
+
+.title_container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.title_container img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.title_container .title {
+    font: italic 24px/150% 'Aramisi', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.subtitle {
+    font: bold 12px/130% 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    color: grey;
+    text-align: center;
+    margin: 20px auto;
+    width: 200px;
+}
+
+.statistics_container {
+    margin: 0 auto;
+    width: 240px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.stat_box {
+    position: relative;
+    width: 95px;
+    height: 95px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.stat_box:before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    z-index: 1;
+    background-color: rgba(214, 235, 242, 0.8);
+}
+
+.first:before {
+    transform: rotate(55deg);
+}
+
+.second:before {
+    transform: rotate(-10deg);
+}
+
+.third:before {
+    transform: rotate(59deg);
+}
+
+.fourth:before {
+    transform: rotate(10deg);
+}
+
+.stat_box_content {
+    height: auto;
+}
+
+.stat_box .nmb {
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 2;
+    position: relative;
+}
+
+.stat_box_content .nmb_caption {
+    font-family: Aramisi;
+    font-size: 15px;
+    z-index: 2;
+    position: relative;
+}
+
+.recent_users_container {
+    max-width: 310px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto 50px auto;
+}
+
+.recent_user_content {
+    text-align: center;
+    height: 90px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.recent_user_content:hover {
+    opacity: 0.7;
+}
+
+.recent_user_img {
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: repeating-linear-gradient( 45deg, white, white 2px, rgba(0, 0, 0, 0.1) 2px, rgba(0, 0, 0, 0.1) 3px);
+}
+
+.recent_user_img img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.recent_user_content .doctor_name {
+    margin: 0 auto;
+    width: 60px;
+    cursor: pointer;
+}
+
+.user_caption {}
+
+.modal_footer {
+    margin-top: 50px;
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 235px;
+    text-align: center;
+    background: repeating-linear-gradient(45deg, white, white 2px, rgba(0, 0, 0, 0.1) 2px, rgba(0, 0, 0, 0.1) 3px);
+}
+
+.modal_footer .doctor_name {
+    cursor: pointer;
+}
+
+.footer_photo {
+    margin-top: -35px;
+    padding: 10px 0 10px 0;
+    border-radius: 50%;
+    height: 70px;
+}
+
+.footer_subtitle {
+    font: bold 12px/130% 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    color: grey;
+    text-align: left;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.footer_title {
+    font: italic bold 20px/130% 'Aramisi', sans-serif;
+    font-weight: bold;
+    color: royalblue;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.footer_stats {
+    width: 95%;
+    margin: 20px auto;
+}
+
+.footer_stats ul {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer_stats ul li {
+    margin: 5px 0;
+    font-family: Aramisi;
+    font-weight: bold;
+    width: 50%;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+.footer_stats ul li .stat_num {
+    text-align: right;
+    font-weight: bold;
+    margin-left: 10px;
+    display: inline-block;
+    width: 25px;
+}
+
+@media only screen and (min-width:768px) {
+    .modal_container {
+        width: 768px;
+        margin-top: 10px;
+    }
+    .title_container .title {
+        font: italic 36px/150% 'Aramisi', sans-serif;
+        font-weight: bold;
+        letter-spacing: 2px;
+        white-space: wrap;
+    }
+    .modal_content {
+        width: auto;
+    }
+    .details {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 6px;
+        margin-bottom: 0;
+    }
+    .details li {
+        list-style-type: none;
+        font-weight: bold;
+        margin: 0;
+        width: auto;
+    }
+    .arrow {
+        vertical-align: middle;
+    }
+    .statistics_container {
+        margin: 40px auto 50px auto;
+        width: 450px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .subtitle {
+        width: auto;
+    }
+    .featured_pic img {
+        width: 80px;
+    }
+    .featured_pic .doctor_name {
+        font-size: 16px;
+    }
+    .footer_stats ul li {
+        width: 23%;
+    }
+    .footer_stats ul li:nth-child(1) {
+        order: 2;
+    }
+    .footer_stats ul li:nth-child(2) {
+        order: 3;
+    }
+    .footer_stats ul li:nth-child(3) {
+        order: 1;
+    }
+    .footer_stats ul li:nth-child(4) {
+        order: 4;
+    }
+    .title_container img {
+        width: 30px;
+    }
+    .recent_users_container {
+        margin-bottom: 70px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .modal_container {
+        width: 768px;
+        padding: 0 80px;
+    }
+    .modal_footer {
+        padding: 0 80px;
+        margin-left: -80px;
+    }
+}

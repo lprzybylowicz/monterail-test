@@ -1,0 +1,155 @@
+<body>
+    <header id="single_q_container">
+       <div id="single_q_sub_container">
+         <div class="nav_overhead">
+          <div class="single_q_nav_cont">
+           <a href="index.html#/"><img src="img/questions_back.png" class="single_q_arr_inactive"></a>
+            <div class="buttons">
+                <h1 class="single_q_nav_title">Questions</h1>
+                <img src="img/questions_add.png" class="single_q_plus">
+            </div>
+                        <div class="single_q_nav">
+               <span ng-bind-html='monterail[name].features.question.time | daysChecker'></span>
+         
+        </div>
+
+            </div>
+        </div>
+      
+        
+        
+        </div>
+    </header>
+             
+       
+       <div class="bg_cont">
+        <div class="single_q_panel_container">
+       
+        <div class="single_question main">
+            <div class="rwd_container">
+                <div class="question_head">
+                    <div class="summary">
+                        <img src="img/people/{{name}}.png" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                        <span class="doctor_name" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">{{monterail[name].features.name | capitalize}}</span><span class="action">is asking:</span>
+                    </div>
+                    <hr>
+                    <h2 class="question">{{monterail[name].features.question.title}}</h2>
+                </div>
+                <section class="question_body">
+                    <p>
+                        {{monterail[name].features.question.content}}
+                    </p>
+                    <div class="question_panel">
+                        <span class="follow">unfollow</span>
+                        <div class="vote_panel">
+                            <span ng-bind-html='monterail[name].features.question.votes | voteChecker'></span>
+                            <div class="arrows">
+                                <img src="img/upvote.png" ng-click="vote(name+'/features/question', monterail[name].features.question.votes, 1)">
+                                <img src="img/downvote.png"
+ng-click="vote(name+'/features/question', monterail[name].features.question.votes, -1)">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action_button">GIVE new answer</button>
+                </section>
+            </div>
+            <div class="question_footer">
+                <div class='answers'>
+                    <span class="nmb">3</span> peers already answered
+                    <span class="name">{{monterail[name].features.name | capitalize}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="single_question single_q_answered">
+            <div class="question_head">
+                <div class="summary">
+                    <img src="img/people/{{monterail[name].features.question.answers.first.name}}.png" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[monterail[name].features.question.answers.first.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                    <span class="doctor_name" ng-click="clicked=true; currentPerson=monterail[monterail[name].features.question.answers.first.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">{{monterail[name].features.question.answers.first.name | capitalize}} </span><span class="action">commented it</span>
+                    <span class="bullet">&#8226;</span>
+                    <span class="date">{{monterail[name].features.question.answers.first.time}}</span>
+                </div>
+                <hr>
+            </div>
+            <section class="question_body">
+                <p>{{monterail[name].features.question.answers.first.content}}
+                </p>
+                <div class="question_panel">
+                    <span class="follow"></span>
+                    <div class="vote_panel">
+                        <span ng-bind-html='monterail[name].features.question.answers.first.votes | voteChecker'></span>
+                        <div class="arrows">
+                            <img src="img/upvote.png" ng-click="vote(name+'/features/question/answers/first', monterail[name].features.question.answers.first.votes, 1)">
+                            <img src="img/downvote.png" ng-click="vote(name+'/features/question/answers/first', monterail[name].features.question.answers.first.votes, -1)">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="single_question single_q_answered single_q_commented">
+            <div class="question_head">
+                <div class="summary">
+                    <img src="img/people/{{monterail[name].features.question.answers.second.name}}.png" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[monterail[name].features.question.answers.second.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                    <span class="doctor_name" ng-click="clicked=true; currentPerson=monterail[monterail[name].features.question.answers.second.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">{{monterail[name].features.question.answers.second.name | capitalize}}</span><span class="action">commented it</span>
+                    <span class="bullet">&#8226;</span>
+                    <span class="date">{{monterail[name].features.question.answers.second.time}}</span>
+                </div>
+                <hr>
+            </div>
+            <section class="question_body">
+                <p>
+                    {{monterail[name].features.question.answers.second.content}}
+                </p>
+                <div class="question_panel">
+                    <span class="follow"></span>
+                    <div class="vote_panel">
+                        <span ng-bind-html='monterail[name].features.question.answers.second.votes | voteChecker'></span>
+                        <div class="arrows">
+                            <img src="img/upvote.png" ng-click="vote(name+'/features/question/answers/second', monterail[name].features.question.answers.second.votes, 1)">
+                            <img src="img/downvote.png" ng-click="vote(name+'/features/question/answers/second', monterail[name].features.question.answers.second.votes, -1)">
+                        </div>
+                    </div>
+                </div>
+                <button class="action_button">CONTINUE discussion</button>
+            </section>
+            <div class="question_footer">
+            </div>
+        </div>
+
+        <div class="single_question single_q_answered single">
+            <div class="question_head">
+                <div class="summary">
+                    <img src="img/people/{{monterail[name].features.question.answers.third.name}}.png" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[monterail[name].features.question.answers.third.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                    <span class="doctor_name" ng-click="clicked=true; currentPerson=monterail[monterail[name].features.question.answers.third.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">{{monterail[name].features.question.answers.third.name | capitalize}}</span><span class="action">commented it</span>
+                    <span class="bullet">&#8226;</span>
+                    <span class="date">{{monterail[name].features.question.answers.third.time}}</span>
+                </div>
+                <hr>
+            </div>
+            <section class="question_body">
+                <p> {{monterail[name].features.question.answers.third.content}}
+                </p>
+                <div class="question_panel">
+                    <span class="follow"></span>
+                    <div class="vote_panel">
+                        <span ng-bind-html='monterail[name].features.question.answers.third.votes | voteChecker'></span>
+                        <div class="arrows">
+                            <img src="img/upvote.png" ng-click="vote(name+'/features/question/answers/third', monterail[name].features.question.answers.third.votes, 1)">
+                            <img src="img/downvote.png" ng-click="vote(name+'/features/question/answers/third', monterail[name].features.question.answers.third.votes, -1)">
+                        </div>
+                    </div>
+                </div>
+                <button class="action_button">COMMENT</button>
+            </section>
+            <div class="question_footer">
+            </div>
+        </div>
+
+    </div>
+    </div>
+   <div class="modal" ng-show="clicked">
+        <person-modal monterail="monterail" current-person="currentPerson" related-person="relatedPerson"></person-modal>
+    </div>
+
+</body>

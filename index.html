@@ -1,0 +1,36 @@
+<html ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="single_question_style.css">
+    <link rel="stylesheet" type="text/css" href="all_questions_base.css">
+    <link rel="stylesheet" type="text/css" href="personModal.css">
+    <link href="Open_Sans/OpenSans-Regular.ttf">
+</head>
+
+<ng-view>    
+</ng-view>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCrCogrL4mGNbHDP2lEcurFPoy0NB5uWPQ",
+    authDomain: "monterail-test-project.firebaseapp.com",
+    databaseURL: "https://monterail-test-project.firebaseio.com",
+    projectId: "monterail-test-project",
+    storageBucket: "monterail-test-project.appspot.com",
+    messagingSenderId: "363608069542"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript" src="js/angular.js"></script>
+   
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular-animate.js"></script>
+    <script type="text/javascript" src="js/angular-sanitize.js"></script>
+    <script type="text/javascript" src="myApp.js"></script>
+    <script type="text/javascript" src="myCtrl.js"></script>
+    <script type="text/javascript" src="directives/directives.js"></script>
+
+</html>

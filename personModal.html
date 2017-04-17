@@ -1,0 +1,105 @@
+<div class='overhead'>
+    <div class="modal_container"><span class="close_button" ng-click="$parent.clicked=false; $parent.overflow_mode('auto')">X</span>
+        <div class="modal_content">
+
+            <header>
+                <div>
+                    <div class="featured_pic">
+                        <img ng-src="img/people/{{currentPerson.features.name}}.png">
+                        <br>
+                        <div class="doctor_name">Dr. {{currentPerson.features.name | capitalize}}</div>
+                    </div>
+                    <ul class="details">
+                        <li><span class="custom_heading">MEMBER FOR</span> {{currentPerson.stats.period}} </li>
+                        <li><span class="custom_heading">LAST SEEN</span> {{currentPerson.stats.seen}}</li>
+                        <li><span class="custom_heading"> ACIVITY LEVEL</span>
+                            <div><img src="img/badge_active.png"><img src="img/badge_active.png"><img src="img/badge_inactive.png"></div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <hr class="divider">
+            <div class="title_container">
+                <img ng-src='{{prev}}' ng-init="prev='img/arr_left_inactive.png'" ng-mouseover="prev='img/arr_left_active.png'" ng-mouseout="prev='img/arr_left_inactive.png'" ng-click="currentPerson=monterail[currentPerson.fellows.first]; relatedPerson=monterail[currentPerson.fellows.second]">
+
+                <span class="title">How it all started</span>
+
+                <img ng-src='{{next}}' ng-init="next='img/arr_right_inactive.png'" ng-mouseover="next='img/arr_right_active.png'" ng-mouseout="next='img/arr_right_inactive.png'" ng-click="currentPerson=monterail[currentPerson.fellows.third]; relatedPerson=monterail[currentPerson.fellows.second]">
+
+            </div>
+            <p class="subtitle">That`s where we have been these 5 months ago</p>
+
+            <div class="statistics_container">
+
+                <div class="stat_box first">
+                    <div class="stat_box_content">
+                        <span class="nmb">{{currentPerson.stats.peers}}</span><br>
+                        <span class="nmb_caption">peers</span>
+                    </div>
+                </div>
+                <div class="stat_box second">
+                    <div class="stat_box_content">
+                        <span class="nmb">{{currentPerson.stats.discussions}}</span><br>
+                        <span class="nmb_caption">discussions</span>
+                    </div>
+                </div>
+                <div class="stat_box third">
+                    <div class="stat_box_content">
+                        <span class="nmb">{{currentPerson.stats.findings}}</span><br>
+                        <span class="nmb_caption">findings</span>
+                    </div>
+                </div>
+                <div class="stat_box fourth">
+                    <div class="stat_box_content">
+                        <span class="nmb">{{currentPerson.stats.questions}}</span><br>
+                        <span class="nmb_caption">questions</span>
+                    </div>
+                </div>
+
+            </div>
+            <p class="subtitle">Who joined the platform that same period</p>
+            <div class="recent_users_container">
+                <div class="recent_user_content" ng-click="currentPerson=monterail[currentPerson.fellows.first]; relatedPerson=monterail[currentPerson.fellows.second]">
+                    <div class="recent_user_img">
+                        <img ng-src="img/people/{{currentPerson.fellows.first}}.png">
+                    </div>
+                    <div class="doctor_name">
+                        {{currentPerson.fellows.first | capitalize}}
+                    </div>
+                </div>
+                <div class="recent_user_content" ng-click="currentPerson=monterail[currentPerson.fellows.second]; relatedPerson=monterail[currentPerson.fellows.second]">
+                    <div class="recent_user_img">
+                        <img ng-src="img/people/{{currentPerson.fellows.second}}.png">
+                    </div>
+                    <div class="doctor_name">
+                        {{currentPerson.fellows.second | capitalize}}
+                    </div>
+                </div>
+                <div class="recent_user_content" ng-click="currentPerson=monterail[currentPerson.fellows.third]; relatedPerson=monterail[currentPerson.fellows.second]">
+                    <div class="recent_user_img">
+                        <img ng-src="img/people/{{currentPerson.fellows.third}}.png">
+                    </div>
+                    <div class="doctor_name">
+                        {{currentPerson.fellows.third | capitalize}}
+                    </div>
+                </div>
+            </div>
+            <p class="subtitle">The hottest discussion these days</p>
+        </div>
+        <footer class="modal_footer">
+            <img class="footer_photo" src="img/people/{{relatedPerson.features.name}}.png"><br>
+            <span class="doctor_name" ng-click="currentPerson=monterail[relatedPerson.features.name]; relatedPerson=monterail[currentPerson.fellows.second]">{{relatedPerson.features.name | capitalize}}</span><span class="footer_subtitle">found the guardian article</span>
+            <a ng-href="#/{{relatedPerson.features.question.link}}/{{relatedPerson.features.name}}" ng-click="$parent.overflow_mode('auto')">
+                <p class="footer_title">{{relatedPerson.features.question.title}}</p>
+            </a>
+            <div class="footer_stats">
+                <ul>
+                    <li><span class="stat_num">{{relatedPerson.features.question.discussions}}</span> related discussion</li>
+                    <li><span class="stat_num">{{relatedPerson.features.question.conversations}}</span> conversations</li>
+                    <li><span class="stat_num">{{relatedPerson.features.question.peers}}</span> peers involved</li>
+                    <li><span class="stat_num">{{relatedPerson.features.question.votes}}</span> upvotes</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</div>

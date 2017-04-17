@@ -1,0 +1,143 @@
+<html ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+
+<head>
+    <link href="Open_Sans/OpenSans-Regular.ttf">
+</head>
+
+<body>
+    <header id="all_q_container">
+        <div id="all_q_sub_container">
+            <div class="nav">
+                <div class="nav_cont">
+                    <div class="buttons">
+                        <h1 class="nav_title">Questions</h1>
+                        <img src="img/questions_add.png">
+                    </div>
+                    <div class="filter">
+                        <form>
+                            <input type="radio" checked name="group"> My shelf
+                            <input type="radio" name="group"> All questions
+                        </form>
+                    </div>
+
+                </div>
+                <div class="sort" ng-init="selected = 'recent'">
+                    Sort by: <span class="category" ng-class="{'active': selected === 'recent'}" ng-click="orderquery='features.question.time'; selected = 'recent'">recent</span> or <span class="category" ng-class="{'active': selected === 'hot'}" ng-click="orderquery='-features.question.discussions'; selected = 'hot'">hot</span>
+                </div>
+            </div>
+
+            <div class="search_panel">
+                <input type="text" placeholder="Search questions" ng-model="phrase"><button class="action_button" ng-click="searchquery=phrase">SEARCH</button>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="bg_cont">
+        <div class="panel_container">
+            <span ng-repeat="item in monterailArr | filter:searchquery | orderBy:orderquery">
+                <section class="single_panel">
+                    <div class="single_panel_header">
+                        <div class="header_content">
+                            <div class="featured_photo">
+                                <img src="img/people/{{item.features.name}}.png" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[item.features.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                            </div>
+                            <div class="header_summary">
+                                <span class="doctor_name" ng-init="clicked = false" ng-click="clicked=true; currentPerson=monterail[item.features.name]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">{{monterail[item.features.name].features.name | capitalize}}</span>
+                                <span class="action">is asking:</span>
+                                <a href="#/{{item.features.question.link}}/{{item.features.name}}">
+                                    <h2 class="question">{{monterail[item.features.name].features.question.title}}</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_column first">
+                        <div class="column_footer">
+                            <hr>
+                            <span class="event">Asked</span>
+                        </div>
+                    </div>
+                    <div class="single_column more">
+                        <span class="amount">3</span>
+                        <div class="column_footer">
+                            <span class="event">more<br>activities</span>
+                        </div>
+                        <div class="dot">
+                            <img src="img/big_grey_dot.png">
+                        </div>
+                    </div>
+
+                    <span ng-repeat="fellow in item.fellows">
+
+                                <a ng-click="currentPerson=monterail[fellow]" href="#/{{item.features.question.link}}/{{item.features.name}}" >
+                                    <div class="single_column commented">
+                                        <img src="img/people/{{fellow}}.png" class="photo" ng-click="clicked=true; currentPerson=monterail[fellow]; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                                        <div class="column_footer">
+                                            <hr>
+                                            <span class="event">Commented</span>
+                                        </div>
+                                        <div class="dot">
+                                            <img src="img/big_grey_dot.png">
+                                        </div>
+                                    </div>
+                                </a>
+                    </span>
+
+                    <a ng-click="currentPerson=monterail[item.features.name]" href="#/{{item.features.question.link}}/{{item.features.name}}">
+                        <div class="single_column answered">
+                            <img src="img/people/{{item.features.name}}.png" class="photo" ng-click="clicked=true; currentPerson=monterail.dorian; relatedPerson=monterail[currentPerson.fellows.second]; overflow_mode('hidden')">
+                            <div class="column_footer">
+                                <hr>
+                                <span class="event">Answered</span>
+                            </div>
+                            <div class="dot">
+                                <img src="img/big_black_dot.png">
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="stats">
+                        <ul>
+                            <li><span class="stat_num">{{monterail[item.features.name].features.question.discussions | number}}</span> related discussions</li>
+                            <li><span class="stat_num">{{monterail[item.features.name].features.question.peers}}</span> peers involved</li>
+                            <li><span class="stat_num">{{monterail[item.features.name].features.question.conversations}}</span> conversations</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="modal" ng-show="clicked">
+                    <person-modal monterail="monterail" current-person="currentPerson" related-person="relatedPerson"></person-modal>
+                </div>
+            </span>
+
+            <div id="add_more" ng-click="addRow()">load more questions</div>
+        </div>
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCrCogrL4mGNbHDP2lEcurFPoy0NB5uWPQ",
+        authDomain: "monterail-test-project.firebaseapp.com",
+        databaseURL: "https://monterail-test-project.firebaseio.com",
+        projectId: "monterail-test-project",
+        storageBucket: "monterail-test-project.appspot.com",
+        messagingSenderId: "363608069542"
+    };
+    firebase.initializeApp(config);
+
+</script>
+
+
+<script type="text/javascript" src="js/angular.js"></script>
+
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-animate.js"></script>
+<script type="text/javascript" src="js/angular-sanitize.js"></script>
+<script type="text/javascript" src="myApp.js"></script>
+<script type="text/javascript" src="myCtrl.js"></script>
+<script type="text/javascript" src="directives/directives.js"></script>
+
+</html>
